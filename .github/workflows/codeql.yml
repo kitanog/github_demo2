@@ -17,7 +17,7 @@ on:
   pull_request:
     branches: [ "main", "branch_rule" ]
   schedule:
-    - cron: '26 5 * * 3'
+    - cron: '0 * * * *'
 
 jobs:
   analyze:
@@ -44,6 +44,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+        - language: javascript-typescript
+          build-mode: none
         - language: python
           build-mode: none
         # CodeQL supports the following values keywords for 'language': 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'swift'
